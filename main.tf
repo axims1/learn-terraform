@@ -32,7 +32,7 @@ resource "aws_instance" "web" {
 resource "aws_security_group" "blog" {
   name = ""
   desciption = "Allow https and https.Allow everything out"
-  vpc_id = dat.aws_vpc.default.id
+  vpc_id = data.aws_vpc.default.id
 }
 
 
@@ -43,7 +43,7 @@ resource "aws_security_group_rule" "blog_http_in" {
   protocol    = "tcp"
   cidr_blocks = ["0.0.0.0/0"]
 
-  aws_security_group_id = aws_security_group.blog.id
+  security_group_id = aws_security_group.blog.id
 }
 
 resource "aws_security_group_rule" "blog_https_in" {
@@ -53,7 +53,7 @@ resource "aws_security_group_rule" "blog_https_in" {
   protocol    = "tcp"
   cidr_blocks = ["0.0.0.0/0"]
 
-  aws_security_group_id = aws_security_group.blog.id
+  security_group_id = aws_security_group.blog.id
 
 }
 
@@ -64,6 +64,6 @@ resource "aws_security_group_rule" "blog_outbound" {
   protocol    = "-1"
   cidr_blocks = ["0.0.0.0/0"]
 
-  aws_security_group_id = aws_security_group.blog.id
+  security_group_id = aws_security_group.blog.id
 
 }
