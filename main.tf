@@ -1,5 +1,3 @@
-# Provider Configuration
-provider "aws" {
 
 # Data Source: Fetch the latest Bitnami Tomcat AMI
 data "aws_ami" "app_ami" {
