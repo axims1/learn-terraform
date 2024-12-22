@@ -67,3 +67,9 @@ resource "aws_security_group_rule" "blog_outbound" {
   security_group_id = aws_security_group.blog.id
 
 }
+
+
+lifecycle {
+  prevent_destroy = false 
+  
+}
