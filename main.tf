@@ -1,16 +1,5 @@
 # Provider Configuration
 provider "aws" {
-  region = var.region
-}
-
-# Variables
-variable "instance_type" {
-  default = "t2.micro"
-}
-
-variable "region" {
-  default = "us-east-1"
-}
 
 # Data Source: Fetch the latest Bitnami Tomcat AMI
 data "aws_ami" "app_ami" {
