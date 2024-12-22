@@ -16,7 +16,7 @@ data "aws_ami" "app_ami" {
   owners = ["979382823631"] # Bitnami owner ID
 }
 
-resource "aws_instance" "web SERVER" {
+resource "aws_instance" "web_SERVER" {
 
 ami = data.aws_ami.app_ami.id
 instance_type = var.instance_type
