@@ -16,6 +16,16 @@ data "aws_ami" "app_ami" {
   owners = ["979382823631"] # Bitnami owner ID
 }
 
+resource "aws_instance" "web SERVER" {
+
+ami = data.aws_ami.app_ami.id
+instance_type = var.instance_type
+
+
+}
+
+
+
 # Data Source: Fetch the Default VPC
 data "aws_vpc" "default" {
   default = true
