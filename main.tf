@@ -68,8 +68,15 @@ resource "aws_security_group_rule" "blog_outbound" {
 
 }
 
+resource "aws_instance" "web" {
+
+vpc_security_group_ids = [aws_security_group.blog.id]
+
+}
+
+
 
 lifecycle {
   prevent_destroy = false 
-  
+
 }
