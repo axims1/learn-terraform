@@ -57,19 +57,3 @@ resource "aws_security_group_rule" "blog_outbound" {
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.blog.id
 }
-
-# EC2 Instance
-resource "aws_instance" "web" {
-  ami                    = data.aws_ami.app_ami.id
-  instance_type          = var.instance_type
-  vpc_security_group_ids = [aws_security_group.blog.id]
-
-  tags = {
-    Name = "terraform bootcamp"
-  }
-
-  # Lifecycle block to ensure destroy is allowed
-  lifecycle {
-    prevent_destroy = false
-  }
-}
